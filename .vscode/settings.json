@@ -1,0 +1,11 @@
+{
+  "python.analysis.typeCheckingMode": "strict", // when ruff & mypy are used, This is not needed.
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit",
+    }
+   },
+   "ruff.importStrategy": "fromEnvironment",
+}
