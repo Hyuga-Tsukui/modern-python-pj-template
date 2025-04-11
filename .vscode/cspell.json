@@ -1,0 +1,10 @@
+{
+    "words": [
+        "ASGI",
+        "isort",
+        "mypy",
+        "mysite",
+        "pycodestyle",
+        "Pyflakes"
+    ]
+}
