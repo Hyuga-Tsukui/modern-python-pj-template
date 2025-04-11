@@ -53,6 +53,23 @@ def fetch_webpage(url: str) -> str:
                 raise ValueError(f"Error fetching page: {response.status_code}")
 
 
+@dataclass
+class Stack[T]:
+    """
+    A simple stack implementation.
+
+    Generic type Class GA python 3.12.
+    """
+
+    items: list[T] = []
+
+    def push(self, item: T) -> None:
+        self.items.append(item)
+
+    def pop(self) -> T:
+        return self.items.pop()
+
+
 def main() -> None:
     p1 = Point(x=1, y=3)
     print(p1)

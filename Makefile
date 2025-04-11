@@ -1,9 +1,9 @@
 lint: ## Run linters ruff and mypy
-	@ruff check --fix
-	@mypy .
+	@uv run ruff check --fix
+	@uv run mypy .
 
 fmt: ## Run ruff formatter
-	@ruff format
+	@uv run ruff format
 
 install: ## Install dependencies
 	@uv sync

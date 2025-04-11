@@ -7,5 +7,6 @@
       "source.organizeImports": "explicit",
     }
    },
-   "ruff.importStrategy": "fromEnvironment",
+  "ruff.importStrategy": "fromEnvironment",
+  "makefile.configureOnOpen": false,
 }

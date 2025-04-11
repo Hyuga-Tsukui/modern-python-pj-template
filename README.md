@@ -5,7 +5,7 @@ Supporting Python 3.13 and above, it integrates the latest tools and strict type
 
 ## Features
 
-- **Type Safety Focused**: Strict static type checking with mypy (`strict = true` mode)
+- **Type Safety Focused**: Strict static type checking with [mypy](https://github.com/python/mypy) (`strict = true` mode)
 - **Modern Python**: Support for Python 3.13 and above
 - **Code Quality Tools**:
   - Ruff: Fast linter and formatter
