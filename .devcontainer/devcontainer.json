@@ -1,9 +1,11 @@
 {
     "name": "modern-python-pj-template",
-    "build": {
-        "dockerfile": "Dockerfile"
-    },
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "dev",
+    "workspaceFolder": "/workspace",
+    "remoteUser": "vscode",
     "features": {
+        "ghcr.io/devcontainers/features/docker-from-docker:1": {},
         "ghcr.io/devcontainers/features/python:1": {
             "version": "3.13"
         }

@@ -1,0 +1,22 @@
+volumes:
+  mysql_data: null
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ../.env
+    volumes:
+      - type: bind
+        source: ..
+        target: /workspace
+        consistency: cached
+  mysql:
+    image: mysql:8.0
+    env_file:
+      - ../.env
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
