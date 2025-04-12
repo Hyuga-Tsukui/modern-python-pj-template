@@ -8,6 +8,9 @@ fmt: ## Run ruff formatter
 install: ## Install dependencies
 	@uv sync
 
+dev-server: ## Django migrate 
+	@uv run manage.py runserver
+
 help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
 		sed 's/:.*## /: /' | \

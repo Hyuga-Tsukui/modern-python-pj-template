@@ -7,6 +7,9 @@ requires-python = ">=3.13"
 dependencies = [
     "django>=5.2",
     "mysqlclient>=2.2.7",
+    "pydantic>=2.11.3",
+    "pydantic-settings>=2.8.1",
+    "python-dotenv>=1.1.0",
     "requests>=2.32.3",
 ]
 
@@ -41,6 +44,8 @@ warn_return_any = true
 disallow_untyped_defs = true
 disallow_any_generics = true
 check_untyped_defs = true
+
+plugins = ["pydantic.mypy"]
 
 [[tool.mypy.overrides]]
 # サードパーティの[import-untyped]を無視する

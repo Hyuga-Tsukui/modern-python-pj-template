@@ -4,10 +4,12 @@
         "charliermarsh",
         "commandhistory",
         "devcontainers",
+        "healthcheck",
         "HISTFILE",
         "isort",
         "mypy",
         "mysite",
+        "mysqladmin",
         "pycodestyle",
         "Pyflakes",
         "pylance"

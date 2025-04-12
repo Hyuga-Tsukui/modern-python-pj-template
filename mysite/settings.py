@@ -13,6 +13,28 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 from typing import TypedDict
 
+from pydantic import SecretStr
+from pydantic_settings import BaseSettings
+
+
+class AppEnvironmentSettings(BaseSettings):
+    """
+    Settings for the Django application.
+    """
+
+    MYSQL_HOST: str
+    MYSQL_PORT: int
+    MYSQL_DATABASE: str
+    MYSQL_USER: str
+    MYSQL_PASSWORD: SecretStr
+
+
+try:
+    app_env_settings = AppEnvironmentSettings()  # pyright: ignore[reportCallIssue]
+except Exception as e:
+    raise RuntimeError("Failed to load environment settings. Please check your environment variables.") from e
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -94,13 +116,13 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 
-class DatabaseOptions(TypedDict, total=False):
+class DatabaseOptions(TypedDict):
     """
     TypedDict for database options.
     """
 
     ENGINE: str
-    NAME: Path
+    NAME: str
     USER: str
     PASSWORD: str
     HOST: str
@@ -117,8 +139,12 @@ class DatabaseSettings(TypedDict):
 
 DATABASES: DatabaseSettings = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "USER": app_env_settings.MYSQL_USER,
+        "HOST": app_env_settings.MYSQL_HOST,
+        "PORT": app_env_settings.MYSQL_PORT,
+        "NAME": app_env_settings.MYSQL_DATABASE,
+        "PASSWORD": app_env_settings.MYSQL_PASSWORD.get_secret_value(),
     }
 }
 
