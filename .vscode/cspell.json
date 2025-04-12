@@ -1,10 +1,15 @@
 {
     "words": [
         "ASGI",
+        "charliermarsh",
+        "commandhistory",
+        "devcontainers",
+        "HISTFILE",
         "isort",
         "mypy",
         "mysite",
         "pycodestyle",
-        "Pyflakes"
+        "Pyflakes",
+        "pylance"
     ]
 }
